@@ -1,38 +1,40 @@
 <template>
   <div id="shouye">
-    <header id="header">
-      <van-row>
-        <van-col span="12">
-          <div class="header-div1">
-            <img src="../../assets//HeaderImg/001.png" />
-            <span>点击创建学员</span>
-          </div>
-        </van-col>
-        <van-col span="12">
-          <div class="header-div2">
-            <van-field
-              class="header-div2-van-field"
-              readonly
-              clickablelabel="城市"
-              :value="value"
-              placeholder="北京"
-              @click="showPicker = true"
-            />
-            <van-icon class="header-div2-van-icon" name="play" />
-            <div>
-              <van-popup v-model="showPicker" round position="bottom">
-                <van-picker
-                  show-toolbar
-                  :columns="columns"
-                  @cancel="showPicker = false"
-                  @confirm="onConfirm"
-                />
-              </van-popup>
+    <van-sticky>
+      <header id="header">
+        <van-row>
+          <van-col span="12">
+            <div class="header-div1">
+              <img src="../../assets//HeaderImg/001.png" />
+              <span>点击创建学员</span>
             </div>
-          </div>
-        </van-col>
-      </van-row>
-    </header>
+          </van-col>
+          <van-col span="12">
+            <div class="header-div2">
+              <van-field
+                class="header-div2-van-field"
+                readonly
+                clickablelabel="城市"
+                :value="value"
+                placeholder="北京"
+                @click="showPicker = true"
+              />
+              <van-icon class="header-div2-van-icon" name="play" />
+              <div>
+                <van-popup v-model="showPicker" round position="bottom">
+                  <van-picker
+                    show-toolbar
+                    :columns="columns"
+                    @cancel="showPicker = false"
+                    @confirm="onConfirm"
+                  />
+                </van-popup>
+              </div>
+            </div>
+          </van-col>
+        </van-row>
+      </header>
+    </van-sticky>
     <div class="shouye-div1">
       <van-swipe @change="onChange" :autoplay="3000">
         <van-swipe-item>
@@ -58,7 +60,7 @@
     <div class="shouye-div2">
       <van-row type="flex" justify="space-between">
         <van-col span="4">
-          <div class="shouye-div2-div1 wenzi">
+          <div class="shouye-div2-div1 wenzi" @click="Click">
             <p>
               <img src="../../assets/ShouYe/006.png" />
             </p>
@@ -66,7 +68,7 @@
           </div>
         </van-col>
         <van-col span="4">
-          <div class="shouye-div2-div1 lanqiu">
+          <div class="shouye-div2-div1 lanqiu" @click="Click1">
             <p>
               <img src="../../assets/ShouYe/007.png" />
             </p>
@@ -74,7 +76,7 @@
           </div>
         </van-col>
         <van-col span="4">
-          <div class="shouye-div2-div1 lanqiu">
+          <div class="shouye-div2-div1 lanqiu" @click="Click2">
             <p>
               <img src="../../assets/ShouYe/008.png" />
             </p>
@@ -82,7 +84,7 @@
           </div>
         </van-col>
         <van-col span="4">
-          <div class="shouye-div2-div1">
+          <div class="shouye-div2-div1" @click="Click3">
             <p>
               <img src="../../assets/ShouYe/009.png" />
             </p>
@@ -90,7 +92,7 @@
           </div>
         </van-col>
         <van-col span="4">
-          <div class="shouye-div2-div1">
+          <div class="shouye-div2-div1" @click="Click4">
             <p>
               <img src="../../assets/ShouYe/010.png" />
             </p>
@@ -368,6 +370,46 @@ export default {
     onConfirm(value) {
       this.value = value;
       this.showPicker = false;
+    },
+    Click: function() {
+      this.$router.push({
+        name: "kechengliebiao",
+        params: {
+          num: "0"
+        }
+      });
+    },
+    Click1: function() {
+      this.$router.push({
+        name: "kechengliebiao",
+        params: {
+          num: "1"
+        }
+      });
+    },
+    Click2: function() {
+      this.$router.push({
+        name: "kechengliebiao",
+        params: {
+          num: "2"
+        }
+      });
+    },
+    Click3: function() {
+      this.$router.push({
+        name: "kechengliebiao",
+        params: {
+          num: "3"
+        }
+      });
+    },
+    Click4: function() {
+      this.$router.push({
+        name: "kechengliebiao",
+        params: {
+          num: "4"
+        }
+      });
     }
   }
 };
@@ -375,11 +417,7 @@ export default {
 
 <style scoped>
 #header {
-  position: fixed;
-  top: 0;
   background-color: #ffffff;
-  z-index: 999;
-  width: 100%;
 }
 .header-div1 {
   font-size: 14px;
@@ -415,7 +453,7 @@ export default {
   border: 0;
 }
 .shouye-div1 {
-  margin: 60px 15px 0 15px;
+  margin: 0 15px 0 15px;
 }
 .shouye-div1 img {
   width: 100%;

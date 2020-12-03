@@ -14,18 +14,23 @@ export default new Router({
       path: '/zhuti',
       name: 'zhuti',
       component: () => import('./views/ZhuTi'),
-      children: [{
+      children: [
+        //首页
+        {
           path: 'shouye',
           component: () => import('./views/ShouYe'),
         },
+        //约课
         {
           path: 'yueke',
           component: () => import('./views/YueKe'),
         },
+        //服务
         {
           path: 'fuwu',
           component: () => import('./views/FuWu'),
         },
+        //我的
         {
           path: 'wode',
           component: () => import('./views/WoDe'),
@@ -36,10 +41,17 @@ export default new Router({
         }
       ]
     },
+    //登录
     {
       path: '/denglu',
       name: 'denglu',
       component: () => import('./views/DengLu'),
+    },
+    //课程列表
+    {
+      path: '/kechengliebiao',
+      name: 'kechengliebiao',
+      component: () => import('./views/KeChengLieBiao'),
     }
   ]
 })

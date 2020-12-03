@@ -1,15 +1,17 @@
 <template>
   <div id="fuwu">
-    <header id="header">
-      <van-row>
-        <van-col span="12">
-          <div class="header-div1">
-            <img src="../../assets//HeaderImg/001.png" />
-            <span>点击创建学员</span>
-          </div>
-        </van-col>
-      </van-row>
-    </header>
+    <van-sticky>
+      <header id="header">
+        <van-row>
+          <van-col span="12">
+            <div class="header-div1">
+              <img src="../../assets//HeaderImg/001.png" />
+              <span>点击创建学员</span>
+            </div>
+          </van-col>
+        </van-row>
+      </header>
+    </van-sticky>
     <div class="fuwu-div1">
       <van-row>
         <van-col span="12">
@@ -34,11 +36,7 @@ export default {
 
 <style scoped>
 #header {
-  position: fixed;
-  top: 0;
   background-color: #ffffff;
-  z-index: 999;
-  width: 100%;
 }
 .header-div1 {
   font-size: 14px;
@@ -56,7 +54,7 @@ export default {
   margin-left: 10px;
 }
 .fuwu-div1 {
-  margin: 75px 0 0 15px;
+  margin: 25px 0 0 15px;
 }
 .fuwu-div1-div1 {
   font-size: 18px;
