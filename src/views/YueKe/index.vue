@@ -10,7 +10,16 @@
         </van-col>
       </van-row>
     </header>
-    <div class="yueke-div1">123</div>
+    <div class="yueke-div1">
+      <van-calendar
+        title="日历"
+        :poppable="false"
+        :show-confirm="false"
+        :style="{ height: '500px' }"
+        :first-day-of-week="1"
+        :show-title="false"
+      />
+    </div>
     <div class="yueke-div2"></div>
   </div>
 </template>

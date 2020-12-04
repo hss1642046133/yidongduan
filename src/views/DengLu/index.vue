@@ -62,7 +62,11 @@ export default {
       show: true,
       count: "",
       username: "", //账号
-      password: "" //密码
+      password: "", //密码
+      name: {
+        name1: "您还未创建学员",
+        name2: "创建学员"
+      }
     };
   },
   methods: {
@@ -85,7 +89,8 @@ export default {
     //如果通过验证就跳转到指定路由
     onSubmit(values) {
       console.log("submit", values);
-      this.$router.push("/");
+      this.$router.push("/zhuti/wode");
+      localStorage.setItem("user", JSON.stringify(this.name));
     },
     Click: function() {
       this.$router.go(-1);
@@ -132,7 +137,7 @@ export default {
   color: #aeaeae;
   font-size: 12px;
 }
-.denglu-div5 span{
+.denglu-div5 span {
   color: #e8883b;
 }
 </style>

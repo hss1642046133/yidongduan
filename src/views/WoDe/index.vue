@@ -2,24 +2,27 @@
   <div id="wode">
     <div class="wode-div1">
       <van-sticky>
-      <van-nav-bar class="wode-div1-van-nav-bar" title="我的" left-arrow>
-        <template #left>
-          <img src="../../assets/WoDe/002.png" class="wode-div1-van-nav-bar-img1" />
-        </template>
-        <template #right>
-          <img src="../../assets/WoDe/001.png" class="wode-div1-van-nav-bar-img2" />
-        </template>
-      </van-nav-bar>
+        <van-nav-bar class="wode-div1-van-nav-bar" title="我的" left-arrow>
+          <template #left>
+            <img src="../../assets/WoDe/002.png" class="wode-div1-van-nav-bar-img1" />
+          </template>
+          <template #right>
+            <img src="../../assets/WoDe/001.png" class="wode-div1-van-nav-bar-img2" @click="Click1"/>
+          </template>
+        </van-nav-bar>
       </van-sticky>
       <div class="wode-div1-div1"></div>
     </div>
     <div></div>
     <div class="wode-div2">
-      <p>
-        您还未登录
-        <br />请登录后查看相关信息
-      </p>
-      <van-button class="wode-div2-van-button" round type="primary" size="small" @click="Click">登录</van-button>
+      <p style="white-space: pre-wrap;">{{name1}}</p>
+      <van-button
+        class="wode-div2-van-button"
+        round
+        type="primary"
+        size="small"
+        @click="Click"
+      >{{name2}}</van-button>
     </div>
     <div class="wode-div3">
       <van-row>
@@ -167,9 +170,26 @@
 <script>
 export default {
   name: "wode",
+  data() {
+    return {
+      name1: "您还未登录\n请登录后查看相关信息",
+      name2: "登录"
+    };
+  },
+  created() {
+    this.add();
+  },
   methods: {
     Click: function() {
       this.$router.push("/denglu");
+    },
+    add() {
+      var user = JSON.parse(localStorage.getItem("user"));
+      this.name1 = user.name1;
+      this.name2 = user.name2;
+    },
+    Click1: function() {
+      this.$router.push("/shezhi");
     }
   }
 };

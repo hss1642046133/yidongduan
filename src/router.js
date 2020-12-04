@@ -33,6 +33,7 @@ export default new Router({
         //我的
         {
           path: 'wode',
+          name: 'wode',
           component: () => import('./views/WoDe'),
         },
         {
@@ -46,6 +47,12 @@ export default new Router({
       path: '/denglu',
       name: 'denglu',
       component: () => import('./views/DengLu'),
+    },
+    //设置
+    {
+      path: '/shezhi',
+      name: 'shezhi',
+      component: () => import('./views/SheZhi'),
     },
     //课程列表
     {

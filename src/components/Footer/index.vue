@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "gooter1"
+  name: "footer"
 };
 </script>
 
